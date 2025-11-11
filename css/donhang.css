@@ -1,0 +1,123 @@
+/* css/donhang.css */
+.donhang-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  border: 1px solid #eee;
+  font-family: "Signika", sans-serif;
+}
+
+.donhang-title {
+  color: #27ae60;
+  text-align: center;
+  font-size: 28px;
+  font-family: "Oswald", sans-serif;
+  margin-bottom: 20px;
+}
+
+.donhang-box {
+  background: #f8fff8;
+  border: 2px solid #27ae60;
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.donhang-summary h3 {
+  margin: 0 0 15px;
+  color: #2c3e50;
+  font-size: 20px;
+  font-family: "Oswald", sans-serif;
+}
+
+#donhang-items {
+  line-height: 1.8;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+#donhang-items > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed #ddd;
+}
+
+#donhang-items > div:last-child {
+  border-bottom: none;
+}
+
+.donhang-total {
+  border-top: 2px dashed #27ae60;
+  padding-top: 12px;
+  font-weight: bold;
+  font-size: 19px;
+  color: #e74c3c;
+  text-align: right;
+  margin-top: 15px;
+}
+
+.donhang-info {
+  margin-top: 25px;
+  font-size: 15px;
+  color: #34495e;
+  line-height: 1.7;
+}
+
+.donhang-info p {
+  margin: 10px 0;
+}
+
+#donhang-address {
+  background: white;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-top: 6px;
+  word-break: break-word;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.donhang-actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.btn-tiep-tuc {
+  padding: 14px 40px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-family: "Signika", sans-serif;
+}
+
+.btn-tiep-tuc:hover {
+  background: #2980b9;
+}
+
+/* ========================================
+   RESPONSIVE - THÊM VÀO CUỐI FILE donhang.css
+   ======================================== */
+
+@media (max-width: 768px) {
+  .donhang-container { margin: 20px auto; padding: 15px; }
+  .donhang-title { font-size: 24px; }
+  .donhang-box { padding: 15px; }
+  #donhang-items > div { flex-direction: column; align-items: flex-start; gap: 5px; }
+  .donhang-total { font-size: 17px; }
+  .btn-tiep-tuc { width: 100%; padding: 14px; }
+}
+
+@media (max-width: 480px) {
+  .donhang-title { font-size: 20px; }
+  #donhang-items { font-size: 14px; }
+  #donhang-address { font-size: 13px; padding: 10px; }
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel - Quản lý bán nước</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="font/fontawesome-free-7.1.0-web/css/all.min.css" />
+  
+  <!-- Admin CSS -->
+  <link rel="stylesheet" href="css/admin/admin.css" />
+</head>
+<body>
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay">
+    <div class="overlay_detail_order" id="overlay_content"></div>
+  </div>
+
+  <div class="admin_page">
+    <h1 class="title_page_admin">TRANG QUẢN TRỊ</h1>
+    
+    <div class="logo_admin">
+      <img src="img/product/smoothie-strawberry.png" alt="logo_admin_page" />
+    </div>
+    
+    <div class="header_admin-page">
+      <!-- Search Box -->
+      <div class="header_admin-search">
+        <div class="search-box">
+          <i class="fa-solid fa-search"></i>
+          <input type="text" id="searchProductInput" placeholder="Tìm kiếm sản phẩm theo tên..." />
+        </div>
+      </div>
+      
+      <!-- Category Filter -->
+      <div class="header_admin-classification">
+        <div class="classification_select">
+          <span class="classification_select-text">-- Tất cả --</span>
+          <ul class="classification_option">
+            <li onclick="defaultClassification()">Tất cả</li>
+            <li onclick="handleCategoryFilter('Sinh tố')">Sinh tố</li>
+            <li onclick="handleCategoryFilter('Cà phê')">Cà phê</li>
+            <li onclick="handleCategoryFilter('Trà')">Trà</li>
+            <li onclick="handleCategoryFilter('Trà sữa')">Trà sữa</li>
+            <li onclick="handleCategoryFilter('Có ga')">Có ga</li>
+            <li onclick="handleCategoryFilter('Nước tăng lực')">Nước tăng lực</li>
+            <li onclick="handleCategoryFilter('Không ga')">Không ga</li>
+            <li onclick="handleCategoryFilter('Sữa')">Sữa</li>
+            <li onclick="handleCategoryFilter('Nước ép')">Nước ép</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Add Product Button -->
+      <div class="header_admin-page-btn">
+        <button id="addProductAdminBtn">
+          <i class="fa-solid fa-plus"></i> Thêm sản phẩm
+        </button>
+      </div>
+    </div>
+    
+    <div class="admin_content">
+      <!-- Navigation Tabs -->
+      <ul class="navbar_admin">
+        <li class="nav_item_admin active">
+          <i class="fa-solid fa-box"></i> QUẢN LÝ SẢN PHẨM
+        </li>
+        <li class="nav_item_admin">
+          <i class="fa-solid fa-receipt"></i> QUẢN LÝ ĐƠN HÀNG
+        </li>
+        <li class="nav_item_admin">
+          <i class="fa-solid fa-users"></i> QUẢN LÝ TÀI KHOẢN
+        </li>
+        <li class="nav_item_admin">
+          <i class="fa-solid fa-truck-ramp-box"></i> QUẢN LÝ NHẬP HÀNG
+        </li>
+        <li class="nav_item_admin">
+          <i class="fa-solid fa-warehouse"></i> QUẢN LÝ TỒN KHO
+        </li>
+        <li class="nav_item_admin">
+          <i class="fa-solid fa-chart-line"></i> THỐNG KÊ
+        </li>
+        <li class="nav_item_admin">
+          <i class="fa-solid fa-right-from-bracket"></i> ĐĂNG XUẤT
+        </li>
+      </ul>
+      
+      <!-- Table Container -->
+      <div class="container_admin" id="table_container">
+        <table id="table">
+          <thead id="table_header">
+            <tr>
+              <th>Mã SP</th>
+              <th>Hình ảnh</th>
+              <th>Tên sản phẩm</th>
+              <th>Danh mục</th>
+              <th>Giá</th>
+              <th>Dung tích</th>
+              <th>Chi tiết</th>
+              <th>Sửa</th>
+              <th>Xóa</th>
+            </tr>
+          </thead>
+          <tbody id="tbody_products"></tbody>
+          <tbody id="tbody_orders" style="display: none;"></tbody>
+          <tbody id="tbody_users" style="display: none;"></tbody>
+        </table>
+        
+        <!-- Pagination -->
+        <div class="pagination" id="pagination"></div>
+      </div>
+      
+      <!-- Statistics Container -->
+      <div class="statistics_container" id="statistics_container" style="display: none;"></div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/script.js"></script>
+  <script src="data/users.js"></script>
+  <script src="js/admin/helpers.js"></script>
+  <script src="js/admin/products.js"></script>
+  <script src="js/admin/orders.js"></script>
+  <script src="js/admin/users.js"></script>
+  <script src="js/admin/imports.js"></script>
+  <script src="js/admin/inventory.js"></script>
+  <script src="js/admin/statistics.js"></script>
+  <script src="js/admin/main.js"></script>
+</body>
+</html>

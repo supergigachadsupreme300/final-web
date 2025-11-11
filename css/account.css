@@ -1,0 +1,308 @@
+/*trang tài khoản*/
+.account-holder {
+  max-width: 1420px;
+  width: 95%;
+  min-height: 850px;
+  background-color: #fff2dd;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: 9px 9px 0px #b1a8a8;
+  position: relative;
+  padding: 20px;
+}
+/* tiêu đề trang thông tin tài khoản */
+.account-header {
+  font-family: "Signika", sans-serif;
+  font-size: 36px;
+  position: absolute;
+  top: 25px;
+  left: 50px;
+}
+
+/* khung chứa biểu tượng user */
+.user-container {
+  z-index: 1;
+  height: 125px;
+  width: 125px;
+  border: solid 2px black;
+  border-radius: 50%;
+  position: relative;
+  top: 100px;
+  left: 43%;
+  background-color: #ffdada;
+}
+/* biểu tượng user */
+.user-icon {
+  font-size: 97px;
+  position: absolute;
+  top: 10px;
+  left: 1px;
+}
+
+.form {
+  margin-top: 100px;
+}
+
+.form-id {
+  width: 45%;
+  height: 40px;
+}
+
+/* form tài khoản */
+.account-form,
+.register-form {
+  max-width: 1400px;
+  width: auto;
+  height: 550px;
+  background-color: white;
+  border: solid 2px black;
+  bottom: 130px;
+  display: none;
+  flex-wrap: wrap;
+}
+
+.login-form {
+  max-width: 1400px;
+  width: auto;
+  height: 550px;
+  background-color: white;
+  border: solid 2px black;
+  bottom: 130px;
+  display: block;
+  flex-wrap: wrap;
+}
+/* phần bên trái,phải của form tài khoản */
+.account-left,
+.account-right {
+  width: 40%;
+  padding-left: 200px;
+}
+
+
+.register-header,
+.login-header {
+  font-family: "Signika", sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  margin-left: 45px;
+}
+
+.register-label,
+.login-label {
+  margin-left: 350px;
+  font-size: 25px;
+}
+
+.register-input,
+.login-input {
+  margin-left: 10px;
+  height: 30px;
+  width: 200px;
+  font-family: "Signika", sans-serif;
+  font-size: 20px;
+}
+
+
+
+.register-submit,
+.login-submit {
+  margin-left: 450px;
+  height: 50px;
+  width: 120px;
+  background-color: #f8f685;
+  font-family: "Signika", sans-serif;
+  font-size: 20px;
+}
+
+.register-reset,
+.login-reset {
+  margin-left: 10px;
+  height: 50px;
+  width: 100px;
+  background-color: #f8f685;
+  font-family: "Signika", sans-serif;
+  font-size: 20px;
+}
+
+
+.customer-box {
+  background-color: #f5f4f4;
+  outline: none;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 230px;
+  font-family: "Signika", sans-serif;
+  font-size: 17px;
+}
+
+.label {
+  font-family: "Signika", sans-serif;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.submit-button-holder {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;    /* DỒN SÁT BÊN PHẢI */
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 100px;
+  width: 100%;
+  max-height: 150px;
+  padding-right: 20px;          /* Tùy chọn: cách mép phải 20px */
+}
+
+.submit-button {
+  height: 50px;
+  width: 100px;
+  border: solid 1px black;
+  background-color: #f8f685;
+  font-family: "Signika", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#logout-button {
+  margin-left: 400px;
+}
+
+
+#order-history {
+  margin-top: 20px;
+  max-height: 500px;
+  overflow-y: auto;
+  background: #f9f9f9;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 15px;
+}
+
+.order-item {
+  margin-bottom: 25px;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.order-item h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #2c3e50;
+  font-family: "Oswald", sans-serif;
+}
+
+.order-item h3 small {
+  font-weight: normal;
+  color: #7f8c8d;
+}
+
+.order-items {
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #ddd;
+  padding-bottom: 8px;
+}
+
+.order-items > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 15px;
+}
+
+.order-item p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #34495e;
+}
+
+.order-item p strong {
+  color: #2c3e50;
+}
+/* ========================================
+RESPONSIVE
+======================================== */
+
+@media (max-width: 992px) {
+  .user-container {
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 80px;
+  }
+  .user-icon {
+    font-size: 70px;
+  }
+  .form {
+    margin-top: 20px;
+  }  
+  .register-label,
+  .login-label {
+  margin-left: 200px;
+  font-size: 25px;
+  }
+
+  .register-submit,
+  .login-submit {
+    margin-left: 250px;
+  }
+  .account-left,
+  .account-right {
+    width: 40%;
+    padding-left: 100px;
+  }
+
+  #logout-button {
+    margin-left: 200px;
+  }
+}
+@media (max-width: 720px) {
+  .register-label,
+  .login-label {
+    margin-left: 10px;
+  }
+  .register-submit,
+  .login-submit {
+    margin-left: 150px;
+  }
+  #logout-button {
+    margin-left: 0px;
+  }
+  .account-left {
+    width: 30%;
+    padding-left: 0px;
+  }
+  .account-right {
+    width: 30%;
+    padding-left: 100px;
+  }
+  .submit-button-holder {
+    padding-right: 0%;
+  }
+  .customer-box {
+    width: 150px;
+  }
+}
+@media (max-width: 480px) {
+  .register-label,
+  .login-label {
+    margin-left: 0px;
+  }
+  .register-submit,
+  .login-submit {
+    margin-left: 30px;
+  }
+  .submit-button{
+    width: 80px;
+  }
+  .account-right {
+    left: 0px;
+  }
+  .customer-box {
+    width: 100px;
+  }
+}

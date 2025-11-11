@@ -1,0 +1,279 @@
+/* css/style.css - ĐÃ SỬA HOÀN CHỈNH */
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Signika", sans-serif;
+}
+
+.app-wrapper {
+  height: auto;
+  min-height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+}
+
+.site-logo {
+  height: 108px;
+  width: 108px;
+  border-radius: 50%;
+  background-color: white;
+  margin-left: 44px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.logo-img {
+  height: 108px;
+  width: 108px;
+}
+
+.site-nav {
+  max-width: 1000px;
+  width: 100%;
+  height: auto;
+  min-height: 105px;
+  background-color: white;
+  margin: 10px auto;
+  border-radius: 17px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+  box-shadow: 11px 9px 0px #b2a7a7;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 28px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #f0f0f0;
+}
+
+.nav-link.active {
+  border-bottom: solid 2.5px black;
+  font-weight: bold;
+}
+
+/* TRANG CHỦ */
+.home-content {
+  max-width: 1410px;
+  width: 95%;
+  min-height: 870px;
+  background-color: #fff2dd;
+  margin: 17px auto 20px;
+  border-radius: 20px;
+  box-shadow: 12px 8px 0px #616161;
+  position: relative;
+}
+
+.banner-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 15px 17px 0px rgba(51, 50, 50, 0.25);
+  display: block;
+  margin: 30px auto 0;
+  object-fit: cover;
+  position: absolute;
+  right: 50px;
+  top: 90px;
+}
+
+pre {
+  font-family: "Playfair Display", serif;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.home-text-1 {
+  font-size: 64px;
+  font-weight: bold;
+  font-style: italic;
+  position: absolute;
+  top: 60px;
+  left: -120px;
+  text-shadow: 6px 4px 0px #9b9b9b;
+  color: black;
+}
+
+.home-text-2 {
+  font-size: 24px;
+  font-style: italic;
+  position: absolute;
+  text-shadow: 8px 6px 4px #afafaf;
+  top: 340px;
+  left: 115px;
+  color: black;
+}
+
+.home-text-3 {
+  font-size: 40px;
+  font-style: italic;
+  font-weight: bold;
+  text-shadow: 4px 3px 0px rgba(98, 98, 98, 0.44);
+  position: absolute;
+  bottom: 190px;
+  left: 20px;
+  color: black;
+}
+
+.category-section {
+  margin: 10px auto;
+  border-radius: 20px;
+  max-width: 1410px;
+  width: 95%;
+  background-color: #fff2dd;
+  box-shadow: 11px 9px 0 #b2a7a7;
+  padding: 20px;
+}
+
+.category-title {
+  font-size: 32px;
+  font-family: "Oswald", sans-serif;
+  text-align: center;
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filter-group label {
+  font-size: 14px !important;
+  color: #333;
+}
+
+/* ========================================
+   RESPONSIVE - THÊM VÀO CUỐI FILE style.css
+   ======================================== */
+
+/* Ngăn tràn toàn cục */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Header responsive */
+@media screen and (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .site-logo {
+    margin: 10px auto;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+    margin: 0 15px;
+    min-height: auto;
+    border-radius: 12px;
+  }
+
+  .nav-link {
+    font-size: 18px;
+    padding: 8px 12px;
+    font-weight: 600;
+  }
+
+  .nav-icon {
+    display: none;
+  }
+}
+
+/* Home page */
+@media screen and (max-width: 768px) {
+  .home-content {
+    min-height: 700px;
+    padding: 20px;
+    margin: 10px auto;
+  }
+
+  .banner-img {
+    position: static;
+    max-width: 100%;
+    margin: 20px auto;
+    display: block;
+    box-shadow: 8px 10px 0px rgba(51, 50, 50, 0.25);
+  }
+
+  .home-text-1 {
+    font-size: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    top: 20px;
+    text-shadow: 4px 3px 0px #9b9b9b;
+    position: relative;
+  }
+
+  .home-text-2 {
+    font-size: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    top: 180px;
+    text-shadow: 5px 4px 3px #afafaf;
+    position: relative;
+  }
+
+  .home-text-3 {
+    font-size: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    bottom: 80px;
+    position: relative;
+  }
+
+  .category-section {
+    margin: 15px auto;
+    padding: 15px;
+  }
+
+  .category-title {
+    font-size: 24px;
+  }
+}

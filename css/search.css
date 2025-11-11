@@ -1,0 +1,273 @@
+
+/* TRANG SẢN PHẨM */
+.products-layout {
+  display: flex;
+  margin: 20px 23px;
+  gap: 20px;
+}
+
+.products-sidebar {
+  width: 220px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 7px 7px 0 #929292;
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-item {
+  margin-bottom: 10px;
+}
+
+.category-btn {
+  width: 100%;
+  padding: 12px;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+  font-family: "Signika", sans-serif;
+}
+
+.category-btn:hover {
+  background: #e9ecef;
+}
+
+.category-btn.active {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+  font-family: "Signika", sans-serif;
+}
+
+.products-main {
+  flex: 1;
+}
+
+.search-box {
+  background-color: #ffffff;
+  height: 60px;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 7px 7px 0px #929292;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.search-input {
+  outline: none;
+  border: none;
+  padding: 0 15px;
+  font-size: 18px;
+  flex: 1;
+  border-right: 1px solid #080707;
+}
+
+.search-btn {
+  outline: none;
+  border: none;
+  width: 120px;
+  background-color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #2563eb;
+}
+
+.search-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.products-grid {
+  background-color: #fff2dd;
+  border-radius: 15px;
+  box-shadow: 11px 9px 0 #929292;
+  padding: 25px;
+  min-height: 600px;
+}
+
+.product-items {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.product-card {
+  height: 320px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 5px 7px 0 #626262;
+  transition: transform 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-thumb {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.product-thumb img {
+  height: auto;
+  max-width: 150px;
+  border-radius: 10px;
+}
+
+.thumb-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #ffa27a;
+  position: absolute;
+  top: 25px;
+  right: 17px;
+  z-index: -1;
+}
+
+.product-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 180px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 5px 7px 0 #626262;
+}
+
+.product-title {
+  font-size: 24px;
+  margin: 40px 0 10px;
+  color: #333;
+  text-align: center;
+}
+
+.btn-buy {
+  width: 120px;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #f4f460;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-buy:hover {
+  background-color: #e0e050;
+}
+/* THÊM MỚI: Tìm kiếm nâng cao */
+.advanced-search-box {
+  transition: all 0.3s ease;
+}
+
+.toggle-advanced,
+.advanced-toggle-btn {
+  font-weight: 600 !important;
+}
+
+.advanced-toggle-btn:hover,
+.toggle-advanced:hover {
+  background-color: #f0f0f0 !important;
+}
+
+.advanced-filters {
+  animation: fadeIn 0.3s;
+}
+
+
+/* Products page */
+@media screen and (max-width: 768px) {
+  .products-layout {
+    flex-direction: column;
+    margin: 15px;
+  }
+
+  .products-sidebar {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .search-box {
+    height: 50px;
+    flex-wrap: wrap;
+    padding: 5px;
+  }
+
+  .search-input {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  .search-btn,
+  .advanced-toggle-btn {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .advanced-search-box {
+    padding: 10px;
+  }
+
+  .filter-group[style*="flex"] {
+    flex-direction: column;
+  }
+
+  .filter-group > div {
+    width: 100%;
+  }
+
+  .products-grid {
+    padding: 15px;
+  }
+
+  .product-items {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .product-card {
+    height: 280px;
+  }
+
+  .product-thumb img {
+    max-width: 120px;
+  }
+
+  .product-title {
+    font-size: 20px;
+  }
+}
+
+/* Pagination */
+@media screen and (max-width: 768px) {
+  .pagination {
+    margin-top: 20px;
+  }
+
+  .pagination button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
