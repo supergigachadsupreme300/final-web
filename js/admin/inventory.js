@@ -131,7 +131,20 @@ function showAdjustStockForm(productId) {
           <span>Tồn kho mới: <strong>0</strong></span>
         </div>
       </div>
-      
+
+      <div class="form-section" style="background: linear-gradient(135deg, #ff9a00 0%, #ff5e00 100%); border-left: 4px solid #ff5e00;">
+        <h3 class="section-title"><i class="fa-solid fa-dollar-sign"></i> Cập Nhật Giá</h3>
+        
+        <div class="form_controll_admin">
+          <label><i class="fa-solid fa-money-bill-wave"></i> Giá nhập (VNĐ)</label>
+          <input type="number" id="adjust_cost_price" min="0" value="${product.costPrice || 0}" placeholder="Nhập giá nhập kho..." />
+        </div>
+
+        <div class="form_controll_admin">
+          <label><i class="fa-solid fa-tag"></i> Giá bán (VNĐ)</label>
+          <input required type="number" id="adjust_price" min="0" value="${product.price || 0}" placeholder="Nhập giá bán..." />
+        </div>
+      </div>
       <div class="form-section" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); border-left: 4px solid #11998e;">
         <h3 class="section-title"><i class="fa-solid fa-comment"></i> Lý Do & Ghi Chú</h3>
         
@@ -211,9 +224,16 @@ function handleAdjustStock() {
   const reason = document.getElementById('adjust_reason').value;
   const note = document.getElementById('adjust_note').value;
   const productId = window.currentProductId;
+  const newCostPrice = parseFloat(document.getElementById('adjust_cost_price').value) || 0;
+  const newSellingPrice = parseFloat(document.getElementById('adjust_price').value) || 0;
+  
+  if (newSellingPrice <= 0) {
+    showNotification('Vui lòng nhập giá bán hợp lệ!', 'error');
+    return;
+  }
   
   if (quantity <= 0 && type !== 'set') {
-    showNotification('Vui lòng nhập số lượng hợp lệ!', 'error');
+    showNotification('Vui lòng nhập số lượng điều chỉnh hợp lệ!', 'error');
     return;
   }
   
@@ -242,6 +262,9 @@ function handleAdjustStock() {
   }
   
   products[productIndex].quantity = newQuantity;
+  products[productIndex].price = newSellingPrice;
+  products[productIndex].costPrice = newCostPrice;
+  
   localStorage.setItem('products', JSON.stringify(products));
   
   // Get current user safely
@@ -266,7 +289,7 @@ function handleAdjustStock() {
   overlayClose();
   
   // Show notification
-  showNotification('✓ Đã điều chỉnh tồn kho thành công!', 'success');
+  showNotification('✓ Đã cập nhật sản phẩm thành công!', 'success');
   
   // Update display immediately
   setTimeout(() => {

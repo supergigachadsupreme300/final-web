@@ -1,4 +1,3 @@
-// js/cart.js
 function renderCart() {
   const list = document.getElementById('cart-items');
   const totalEl = document.getElementById('total-price');
@@ -69,7 +68,7 @@ function attachCartEvents() {
       }
     };
   });
-  // ✅ Nút "Tiến hành thanh toán"
+  // Nút "Tiến hành thanh toán"
   document.querySelector(".btn-checkout").onclick = function () {
     const userName = localStorage.getItem("userName");
     if (!userName) {

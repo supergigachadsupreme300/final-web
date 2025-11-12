@@ -1,5 +1,3 @@
-// ✅ js/purchase.js (ĐÃ SỬA HOÀN CHỈNH)
-
 function renderCheckoutSummary() {
   const container = document.getElementById("checkout-items"); // Nơi hiển thị tóm tắt đơn hàng
   const totalEl = document.getElementById("checkout-total-price"); // Nơi hiển thị tổng tiền
@@ -96,7 +94,6 @@ document.querySelector(".btn-confirm").onclick = function () {
     }
   }
 
-// Tiếp tục tạo order...
 
   // Tạo đơn hàng
   const order = {
@@ -128,7 +125,7 @@ document.querySelector(".btn-confirm").onclick = function () {
   switchPage(document.querySelector('[data-page="donhang"]'), "donhang");
 };
 
-// ✅ Cập nhật địa chỉ mặc định
+// Cập nhật địa chỉ mặc định
 function updateDefaultAddress() {
   const userName = localStorage.getItem("userName");
   const defaultAddrEl = document.getElementById("default-address");
@@ -142,11 +139,11 @@ function updateDefaultAddress() {
     
 }
 
-// ✅ Khi load trang, cập nhật sẵn tóm tắt đơn hàng (nếu có)
+// Khi load trang, cập nhật sẵn tóm tắt đơn hàng (nếu có)
 document.addEventListener("DOMContentLoaded", renderCheckoutSummary);
 
 
-// ✅ Hiển thị/ẩn ô nhập địa chỉ mới dựa trên lựa chọn giao hàng
+// Hiển thị/ẩn ô nhập địa chỉ mới dựa trên lựa chọn giao hàng
 document.addEventListener('DOMContentLoaded', () => {
   const deliveryRadios = document.querySelectorAll('input[name="delivery"]'); // Radio buttons chọn phương thức giao hàng
   const newAddressSection = document.querySelector('.new-address');  // Parent của input

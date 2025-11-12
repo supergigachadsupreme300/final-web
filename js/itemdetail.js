@@ -1,6 +1,3 @@
-// js/itemdetail.js
-// ĐÃ TÁCH RIÊNG – HOÀN CHỈNH
-
 let currentProduct = null;
 
 function showProductDetail(id) { // id sản phẩm

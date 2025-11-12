@@ -47,10 +47,10 @@ function renderProducts(filter = "Tất cả", search = "", page = 1, advancedFi
   const paginationContainer =document.querySelector(".pagination") || createPaginationContainer(); //tạo thẻ phân trang nếu chưa có
   let items = products; //bắt đầu với tất cả sản phẩm
 
-  // 1. Lọc danh mục
+  //  Lọc danh mục
   if (filter !== "Tất cả")  items = items.filter((p) => p.category === filter);
 
-  // 2. Lọc tìm kiếm
+  //  Lọc tìm kiếm
   // Lọc tìm kiếm cơ bản (thay bằng includes cho chứa chuỗi)
   if (search) items = items.filter( (p) => p.name.toLowerCase().includes(search.toLowerCase()) || p.description.toLowerCase().includes(search.toLowerCase()));
 
@@ -60,7 +60,7 @@ function renderProducts(filter = "Tất cả", search = "", page = 1, advancedFi
   if (advancedFilters.maxPrice < Infinity) items = items.filter((p) => p.price <= advancedFilters.maxPrice);// Lọc theo giá tối đa
   if (advancedFilters.volume) items = items.filter((p) => p.volume.toLowerCase() === advancedFilters.volume.toLowerCase());// Lọc nâng cao dung tích
   
-  // 4. Phân trang
+  //  Phân trang
   const totalItems = items.length; // Tổng số sản phẩm sau lọc
   const totalPages = Math.ceil(totalItems / PRODUCTS_PER_PAGE); // Tổng số trang
   const startIndex = (page - 1) * PRODUCTS_PER_PAGE; // Chỉ số bắt đầu của trang hiện tại
@@ -69,7 +69,7 @@ function renderProducts(filter = "Tất cả", search = "", page = 1, advancedFi
 
   currentPage = page > totalPages ? totalPages : page < 1 ? 1 : page; // Cập nhật trang hiện tại hợp lệ
 
-  // 5. Render sản phẩm
+  //  Render sản phẩm
   container.innerHTML =
     paginatedItems.length === 0 // Nếu không có sản phẩm nào sau lọc
       ? `<p style="grid-column: 1/-1; text-align:center; color:#999; padding: 20px;">Không tìm thấy sản phẩm nào phù hợp.</p>`
@@ -175,8 +175,6 @@ function setupSearch() {
 // Export hàm để dùng ở nơi khác
 window.setupSearch = setupSearch;
 
-
-// ==================== CẬP NHẬT: TÌM KIẾM NÂNG CAO HIỂN THỊ NGAY KHI NHẤN APPLY====================
 // Khởi tạo tìm kiếm nâng cao
 function initAdvancedSearch() {
   const toggleBtn = document.querySelector(".advanced-toggle-btn"); //nút bấm mở/đóng tìm kiếm nâng cao

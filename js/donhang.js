@@ -1,4 +1,3 @@
-// js/donhang.js
 function showDonHangPage() {
   const orderData = JSON.parse(localStorage.getItem('lastOrder') || 'null');
   if (!orderData) {
@@ -51,5 +50,3 @@ function showDonHangPage() {
     renderCart();
   };
 }
-
-// Tự động chạy khi vào trang donhang

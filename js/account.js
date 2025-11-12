@@ -156,7 +156,7 @@ function updateAfterLogin() {
  */
 
 function updateDefaultAddress() {
-  // THAY ĐỔI 10: Hiển thị địa chỉ của user hiện tại
+  // Hiển thị địa chỉ của user hiện tại
   const userName = localStorage.getItem("userName");
   const defaultAddrEl = document.getElementById("default-address");
   if (!userName || !defaultAddrEl) return;
