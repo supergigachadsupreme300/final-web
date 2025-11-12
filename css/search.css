@@ -271,3 +271,12 @@
     font-size: 14px;
   }
 }
+
+.page-btn {
+  font-family: "Signika", sans-serif;
+  font-weight: 500;
+  font-size: large;
+  height: 30px;
+  width: 80px;
+  background-color: #f4dd6e;
+}

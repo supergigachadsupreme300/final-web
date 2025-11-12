@@ -40,21 +40,7 @@ document.querySelector(".btn-back").onclick = function () {
   document.querySelector(".cart-page").style.display = "block";
   renderCart();
 };
-//  Trừ quantity sau khi mua
-function updateInventoryAfterPurchase(cart) {
-  let products = JSON.parse(localStorage.getItem('products')) || [];
-  cart.forEach(item => {
-    const product = products.find(p => p.name === item.name); // Tìm theo name hoặc id nếu có
-    if (product) {
-      product.quantity -= item.qty;
-      if (product.quantity < 0) product.quantity = 0; // Tránh âm
-    }
-  });
-  localStorage.setItem('products', JSON.stringify(products));
-  
-  // Cập nhật window.products để UI user refresh
-  if (window.refreshProducts) window.refreshProducts();
-}
+
 
 
 //  Nút "Xác nhận đặt hàng"
@@ -120,11 +106,25 @@ document.querySelector(".btn-confirm").onclick = function () {
   // Xóa giỏ hàng
   localStorage.removeItem(cartKey);
   // Gọi hàm sau xóa giỏ
-  updateInventoryAfterPurchase(cart);
   // Chuyển sang trang đơn hàng
   switchPage(document.querySelector('[data-page="donhang"]'), "donhang");
 };
 
+//  Trừ quantity sau khi mua
+function updateInventoryAfterPurchase(cart) {
+  let products = JSON.parse(localStorage.getItem('products')) || [];
+  cart.forEach(item => {
+    const product = products.find(p => p.name === item.name); // Tìm theo name hoặc id nếu có
+    if (product) {
+      product.quantity -= item.qty;
+      if (product.quantity < 0) product.quantity = 0; // Tránh âm
+    }
+  });
+  localStorage.setItem('products', JSON.stringify(products));
+  
+  // Cập nhật window.products để UI user refresh
+  if (window.refreshProducts) window.refreshProducts();
+}
 // Cập nhật địa chỉ mặc định
 function updateDefaultAddress() {
   const userName = localStorage.getItem("userName");
@@ -138,6 +138,9 @@ function updateDefaultAddress() {
     : "Vui lòng nhập địa chỉ trong phần Tài khoản.";
     
 }
+
+
+
 
 // Khi load trang, cập nhật sẵn tóm tắt đơn hàng (nếu có)
 document.addEventListener("DOMContentLoaded", renderCheckoutSummary);
