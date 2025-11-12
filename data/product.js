@@ -72,3 +72,12 @@ window.refreshProducts = () => {
   window.products = window.getProducts();
   if (typeof initProductsPage === 'function') initProductsPage();
 };
+
+// Khởi tạo localStorage 'products' nếu chưa tồn tại
+if (!localStorage.getItem('products')) {
+  localStorage.setItem('products', JSON.stringify(DEFAULT_PRODUCTS));
+  console.log("Đã khởi tạo localStorage 'products' với dữ liệu mặc định.");
+}
+
+// Sau đó tải lên UI
+window.refreshProducts();

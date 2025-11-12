@@ -102,29 +102,58 @@ document.querySelector(".btn-confirm").onclick = function () {
 
   // Lưu đơn hàng tạm để hiển thị trang donhang
   localStorage.setItem("lastOrder", JSON.stringify(order));
-
+  // Cập nhật lại kho hàng
+  updateInventoryAfterPurchase();
   // Xóa giỏ hàng
   localStorage.removeItem(cartKey);
-  // Gọi hàm sau xóa giỏ
+
   // Chuyển sang trang đơn hàng
   switchPage(document.querySelector('[data-page="donhang"]'), "donhang");
 };
 
 //  Trừ quantity sau khi mua
-function updateInventoryAfterPurchase(cart) {
-  let products = JSON.parse(localStorage.getItem('products')) || [];
-  cart.forEach(item => {
-    const product = products.find(p => p.name === item.name); // Tìm theo name hoặc id nếu có
-    if (product) {
-      product.quantity -= item.qty;
-      if (product.quantity < 0) product.quantity = 0; // Tránh âm
+function updateInventoryAfterPurchase() {
+    const userName = localStorage.getItem("userName");
+    if (!userName) return console.warn("Không có user đăng nhập.");
+
+    const cartKey = `cart_${userName}`;
+    const cart = JSON.parse(localStorage.getItem(cartKey) || "[]");
+    if (!Array.isArray(cart) || cart.length === 0) return;
+
+    //Lấy products — nếu chưa có thì lấy từ window.getProducts()
+    let products = JSON.parse(localStorage.getItem("products"));
+    if (!Array.isArray(products) || products.length === 0) {
+      if (typeof window.getProducts === "function") {
+        products = window.getProducts();
+      } else {
+        console.warn("Không tìm thấy danh sách sản phẩm, tạo mới từ DEFAULT_PRODUCTS rỗng.");
+        products = [];
+      }
     }
-  });
-  localStorage.setItem('products', JSON.stringify(products));
-  
-  // Cập nhật window.products để UI user refresh
-  if (window.refreshProducts) window.refreshProducts();
+
+    // Trừ tồn kho
+    cart.forEach(item => {
+      const qty = Number(item.qty || item.quantity || 1);
+      const product = products.find(p =>
+        (item.id && p.id === item.id) ||
+        (p.name && p.name.trim().toLowerCase() === (item.name || "").trim().toLowerCase())
+      );
+      if (product) {
+        product.quantity = Math.max(0, (Number(product.quantity) || 0) - qty);
+      }
+    });
+
+    // Lưu lại sản phẩm
+    localStorage.setItem("products", JSON.stringify(products));
+
+    // Làm mới UI
+    if (typeof window.refreshProducts === "function") {
+      window.refreshProducts();
+    }
 }
+
+
+
 // Cập nhật địa chỉ mặc định
 function updateDefaultAddress() {
   const userName = localStorage.getItem("userName");

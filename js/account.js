@@ -35,7 +35,7 @@ function registerToLogin(event) {
     return false;
   }
 
-  const userData = { password: password, name: "", phone: "", DOB: "", email: "", address: "", orders: [] };
+  const userData = { password: password, name: "", phone: "", DOB: "", email: "", address: "", orders: [],userName: userName };
   localStorage.setItem(userKey, JSON.stringify(userData));
   alert("Đăng ký thành công");
   localStorage.setItem("userName", userName);  // Set session
